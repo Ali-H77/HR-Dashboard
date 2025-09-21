@@ -7,7 +7,7 @@ st.title("HR Dashboard program")
 
 #connect SQL to program
 def get_connection():
-    return sqlite3.connect("mydb.db")
+    return sqlite3.connect("data/mydb.db")
 
 #Load data to program
 def load_employees():
@@ -51,7 +51,7 @@ def update_employee(emp_id, income):
 
 #Get function for the department to add it for add employee function
 def get_departments():
-    with sqlite3.connect('mydb.db') as conn:
+    with sqlite3.connect('data/mydb.db') as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT DISTINCT Department FROM employees")
         rows = cursor.fetchall()
@@ -60,7 +60,7 @@ def get_departments():
 #Get function for the Job Role to add it for add employee function
 
 def get_job_roles():
-    with sqlite3.connect('mydb.db') as conn:
+    with sqlite3.connect('data/mydb.db') as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT DISTINCT JobRole FROM employees")
         rows = cursor.fetchall()
