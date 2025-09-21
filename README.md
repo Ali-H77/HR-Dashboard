@@ -4,6 +4,7 @@ A Streamlit-based web application to manage and visualize employee data using an
 ## 📚 Table of Contents
 
 - [📊 Featuers]
+- [📈 Visual Demo]
 - [📌 Project Overview]
 - [🗂️ Data Source ]
 - [🛠️ Technology Stack]
@@ -26,6 +27,20 @@ This HR Dashboard application enables HR professionals to:
 - View insightful analytics including department distribution, salary trends, and gender balance.
 - Add and update employee records with ease.
 - Store and retrieve data using a lightweight SQLite database.
+
+### 📈 Visual Demo
+![
+    frist thing appear when open the web page
+](<Screenshot 2025-09-21 124426.png>)
+![
+    One of the fig in page
+](<Screenshot 2025-09-21 124732.png>)
+![
+    Add New Employee
+](<Screenshot 2025-09-21 124842.png>)
+![
+    Update Income for Employee
+](<Screenshot 2025-09-21 124951.png>)
 
 ### 🎯 Purpose & Value
 
