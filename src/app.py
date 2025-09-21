@@ -2,6 +2,12 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 import plotly.express as px
+from PIL import Image
+
+#add image in streamlit
+logo = Image.open('images/Solutions logo.png')
+st.image(logo,width= 200)
+
 
 st.title("HR Dashboard program")
 

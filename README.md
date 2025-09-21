@@ -28,7 +28,7 @@ This HR Dashboard application enables HR professionals to:
 - Add and update employee records with ease.
 - Store and retrieve data using a lightweight SQLite database.
 
-### 📈 Visual Demo
+## 📈 Visual Demo
 ![
     frist thing appear when open the web page
 ](<images/Screenshot 2025-09-21 124426.png>)
