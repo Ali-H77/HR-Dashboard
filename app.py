@@ -17,3 +17,14 @@ def load_employees():
 
 #function to load data to return 
 df = load_employees()
+
+#Tab Bar to swap between functions
+Tab_Dashboard, Tab_Add, Tab_Update = st.tabs(["HR Dashboard","Add New Employee","Update state of Employee"])
+
+# return to Tab bar (Tab Bar to swap between functions)
+with Tab_Dashboard:
+        #Department filter simple filter the analysis in fig basis on the Department
+    department_filter = st.selectbox("Filter by Department:", options=["All"] + sorted(df["Department"].unique().tolist()))
+    filtered_df = df if department_filter == "All" else df[df["Department"] == department_filter]
+
+    
