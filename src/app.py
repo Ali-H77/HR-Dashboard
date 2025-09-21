@@ -120,7 +120,7 @@ Tab_Dashboard, Tab_Add, Tab_Update = st.tabs(["HR Dashboard","Add New Employee",
 # return to Tab bar (Tab Bar to swap between functions)
 with Tab_Dashboard:
         #Department filter simple filter the analysis in fig basis on the Department
-    department_filter = st.selectbox("Filter by Department:", options=["All"] + sorted(df["Department"].unique().tolist()))
+    department_filter = st.selectbox("", options=["All"] + sorted(df["Department"].unique().tolist()))
     filtered_df = df if department_filter == "All" else df[df["Department"] == department_filter]
 
     #Fig Bar include : (X = Department , Y = MonthlyIncome)
@@ -148,7 +148,7 @@ with Tab_Dashboard:
         #form to add the element in it 
         with st.form("add_employee_form"):
             #the header for the form
-            st.header("Add a New Employee")
+            st.title("Add a New Employee")
             #take the next number of employee not in database 
             next_id = next_employee_id()
             #add new Employee number 
@@ -209,3 +209,36 @@ with Tab_Dashboard:
                     st.error("Monthly Income must be a number")
 
 
+st.markdown("""
+    <style>
+      .stApp {
+        background-color: #800080;
+        }
+
+        /* Style Streamlit titles (optional) */
+        h1, h2, h3, h4 {
+            color: white !important;
+        }
+
+        /* Force all buttons to have white background and black text */
+        div.stButton > button {
+            background-color: white !important;
+            color: black !important;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 0.5em 1em;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        /* Button hover effect */
+        div.stButton > button:hover {
+            background-color: #f2f2f2 !important;
+            color: black !important;
+        }
+        .stTabs [role="tab"] {
+            color: white !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
