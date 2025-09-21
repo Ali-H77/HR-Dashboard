@@ -1,3 +1,6 @@
+# ===================================================
+# === Import Libraries ===
+# ===================================================
 import streamlit as st
 import sqlite3
 import pandas as pd
@@ -15,13 +18,19 @@ st.title("HR Dashboard program")
 def get_connection():
     return sqlite3.connect("data/mydb.db")
 
-#Load data to program
+# ===================================================
+# === Data Loading ===
+# ===================================================
+
 def load_employees():
     conn = get_connection()
     df = pd.read_sql_query("SELECT * FROM Employees", conn)
     return df
 
-#Insert new data in database only in  EmployeeNumber, Department, MonthlyIncome
+# ===================================================
+# === Data Processing ===
+# ===================================================
+
 def add_employee(employee_id, department, new_role, income):
     conn = get_connection()
     c = conn.cursor()
@@ -30,7 +39,10 @@ def add_employee(employee_id, department, new_role, income):
     conn.commit()
     conn.close() 
 
-#Chack the data inserted if exist by ID Employee 
+# ===================================================
+# === Data Processing ===
+# ===================================================
+
 def employee_exists(employee_id):
     conn = get_connection()
     c = conn.cursor()
@@ -39,7 +51,9 @@ def employee_exists(employee_id):
     conn.close() 
     return exists
 
-#update the information in the database by ID of Employee
+# ===================================================
+# === Data Processing ===
+# ===================================================
 def update_employee(emp_id, income):
     try:
         with sqlite3.connect('mydb.db') as conn:
@@ -55,7 +69,10 @@ def update_employee(emp_id, income):
     except Exception as e:
         return False, str(e)
 
-#Get function for the department to add it for add employee function
+# ===================================================
+# === Data Loading ===
+# ===================================================
+
 def get_departments():
     with sqlite3.connect('data/mydb.db') as conn:
         cursor = conn.cursor()
@@ -63,8 +80,9 @@ def get_departments():
         rows = cursor.fetchall()
     return [row[0] for row in rows]
 
-#Get function for the Job Role to add it for add employee function
-
+# ===================================================
+# === Data Loading ===
+# ===================================================
 def get_job_roles():
     with sqlite3.connect('data/mydb.db') as conn:
         cursor = conn.cursor()
@@ -72,7 +90,9 @@ def get_job_roles():
         rows = cursor.fetchall()
     return [row[0] for row in rows]
 
-#Function count all id in database and +1 to add it to database 
+# ===================================================
+# === Data Processing ===
+# ===================================================
 def next_employee_id():
     conn = get_connection()
     c = conn.cursor()
@@ -88,6 +108,11 @@ def next_employee_id():
 
 #function to load data to return 
 df = load_employees()
+
+
+# ===================================================
+# === Main Program ===
+# ===================================================
 
 #Tab Bar to swap between functions
 Tab_Dashboard, Tab_Add, Tab_Update = st.tabs(["HR Dashboard","Add New Employee","Update state of Employee"])
