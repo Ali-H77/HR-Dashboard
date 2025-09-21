@@ -31,16 +31,16 @@ This HR Dashboard application enables HR professionals to:
 ### 📈 Visual Demo
 ![
     frist thing appear when open the web page
-](<Screenshot 2025-09-21 124426.png>)
+](<images/Screenshot 2025-09-21 124426.png>)
 ![
     One of the fig in page
-](<Screenshot 2025-09-21 124732.png>)
+](<images/Screenshot 2025-09-21 124732.png>)
 ![
     Add New Employee
-](<Screenshot 2025-09-21 124842.png>)
+](<images/Screenshot 2025-09-21 124842.png>)
 ![
     Update Income for Employee
-](<Screenshot 2025-09-21 124951.png>)
+](<images/Screenshot 2025-09-21 124951.png>)
 
 ### 🎯 Purpose & Value
 
