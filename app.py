@@ -33,6 +33,22 @@ def employee_exists(employee_id):
     conn.close() 
     return exists
 
+#update the information in the database by ID of Employee
+def update_employee(emp_id, income):
+    try:
+        with sqlite3.connect('mydb.db') as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "UPDATE employees SET MonthlyIncome = ? WHERE EmployeeNumber = ?", 
+                (float(income), int(emp_id))
+            )
+            conn.commit()
+            if cursor.rowcount == 0:
+                return False, "No employee found with that ID"
+            return True, "Update successful"
+    except Exception as e:
+        return False, str(e)
+
 #Get function for the department to add it for add employee function
 def get_departments():
     with sqlite3.connect('mydb.db') as conn:
@@ -129,5 +145,36 @@ with Tab_Dashboard:
                     st.success("Successfully added employee to the database!")
                     st.session_state['df'] = load_employees() 
                     st.rerun()
+
+
+    # return to Tab bar (Tab Bar to swap between functions)
+    with Tab_Update:
+        st.title("Update Employee Monthly Income")
+        #Input for Employee ID and New Income
+        emp_id = st.text_input("Employee ID")
+        income = st.text_input("New Monthly Income")
+        #If Statment check if Emplyee is exist from Employee ID
+        if st.button("Check Employee Exists"):
+            if emp_id.isdigit():
+                if employee_exists(emp_id):
+                    st.success(f"Employee {emp_id} found!")
+                else:
+                    st.error(f"Employee {emp_id} not found.")
+            else:
+                st.error("Employee ID must be a number.")
+            #update the income of employee 
+        if st.button("Update Income"):
+            if not emp_id.isdigit():
+                st.error("Employee ID must be a number")
+            else:
+                try:
+                    float(income)
+                    success, msg = update_employee(emp_id, income)
+                    if success:
+                        st.success(msg)
+                    else:
+                        st.error(msg)
+                except ValueError:
+                    st.error("Monthly Income must be a number")
 
 
