@@ -5,7 +5,7 @@ A Streamlit-based web application to manage and visualize employee data using an
 
 - [📊 Featuers]
 - [📌 Project Overview]
-- [🗂️ Data Source]
+- [🗂️ Data Source ]
 - [🛠️ Technology Stack]
 - [🚀 Setup and Local Installation]
 - [📄 License]
@@ -41,6 +41,42 @@ Manual HR record keeping can be inefficient and error-prone. This dashboard simp
  
  ### 📥 Data Source
 The sample data was sourced from [Kaggle – HR Dataset](https://www.kaggle.com/datasets) or manually created for simulation purposes.
+ ### Data Dictionary
+ - Age: Employee's age in years
+ - Attrition: Whether the employee has left the company (Yes/No)
+ - BusinessTravel: Frequency of business travel (e.g., Rarely, Frequently, Non-Travel)
+ - DailyRate: Daily pay rate of the employee
+ - Department: The department the employee belongs to (e.g., Sales, R&D, HR)
+ - DistanceFromHome: Distance in kilometers from home to work
+ - Education: Education level (1 = Below College, 2 = College, 3 = Bachelor, 4 = Master, 5 = Doctor)
+ - EducationField: Field of education (e.g., Life Sciences, Medical, Marketing)
+ - EmployeeCount: Number of employees (usually 1 for individual entries)
+ - EmployeeNumber: Unique employee identifier
+ - EnvironmentSatisfaction: Satisfaction rating with work environment (1 = Low to 4 = Very High)
+ - Gender: Employee's gender (Male/Female)
+ - HourlyRate: Hourly pay rate
+ - JobInvolvement: Level of job involvement (1 = Low to 4 = High)
+ - JobLevel: Hierarchical job level (1 = Entry to 5 = Executive)
+ - JobRole: Specific role or title of the employee
+ - JobSatisfaction: Job satisfaction rating (1 = Low to 4 = Very High)
+ - MaritalStatus: Marital status of the employee (Single, Married, Divorced)
+ - MonthlyIncome: Monthly income in SAR
+ - MonthlyRate: Monthly pay rate
+ - NumCompaniesWorked: Number of previous employers
+ - Over18: Whether the employee is over 18 years old (Yes)
+ - OverTime: Whether the employee works overtime (Yes/No)
+ - PercentSalaryHike: Percentage increase in salary over last hike
+ - PerformanceRating: Performance rating (1 = Low to 4 = Outstanding)
+ - RelationshipSatisfaction: Satisfaction with relationships at work (1 = Low to 4 = Very High)
+ - StandardHours: Standard working hours per week (usually 80)
+ - StockOptionLevel: Stock option level granted (0 = None to 3 = High)
+ - TotalWorkingYears: Total years of professional experience
+ - TrainingTimesLastYear: Number of training sessions attended last year
+ - WorkLifeBalance: Work-life balance rating (1 = Bad to 4 = Best)
+ - YearsAtCompany: Number of years with the current company
+ - YearsInCurrentRole: Number of years in the current role
+ - YearsSinceLastPromotion: Years since the last promotion
+ - YearsWithCurrManager: Years working with the current manager
 
 ## 🛠️ Technology Stack
 
@@ -52,13 +88,17 @@ The sample data was sourced from [Kaggle – HR Dataset](https://www.kaggle.com/
 
 ## 🚀 Setup and Local Installation
 - Install all packages required
-...
+
+```
 pip install -r requirements.txt
-...
+```
+
 - Run the Streamlit app
-...
+
+```
 streamlit run app.py
-...
+```
+
 
 ---
 
@@ -66,5 +106,5 @@ streamlit run app.py
 
 - This project is licensed under the MIT License.
 
-## author 
+## Author 
 Ali H Alhussain
