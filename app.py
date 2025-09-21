@@ -27,4 +27,23 @@ with Tab_Dashboard:
     department_filter = st.selectbox("Filter by Department:", options=["All"] + sorted(df["Department"].unique().tolist()))
     filtered_df = df if department_filter == "All" else df[df["Department"] == department_filter]
 
+    #Fig Bar include : (X = Department , Y = MonthlyIncome)
+    fig_bar = px.bar(filtered_df, x="Department", y="MonthlyIncome", color="Department", title="Employee Income by Department")
+    st.plotly_chart(fig_bar)
+
+    #Fig Pie
+    fig_pie = px.pie(df, names="Department", title="Employee Count by Department")
+    st.plotly_chart(fig_pie)
+
+    #Fig Histogram with Education and color by Department
+    fig_H2 = px.histogram(df, y="Education", color="Department", barmode="group",title="Percentage of Education Levels by Department")
+    st.plotly_chart(fig_H2)
+
+    #Fig Histogram with Gender and color by Department
+    fig_histogram = px.histogram(df,x="Gender", color="Department", barmode="group", title="Gender by Department")
+    st.plotly_chart(fig_histogram)
     
+    #table of the all data in database
+    st.subheader("Employee Table")
+    st.dataframe(filtered_df)
+
